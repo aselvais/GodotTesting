@@ -16,57 +16,97 @@ script = ExtResource( 1 )
 
 [node name="windd" type="AcceptDialog" parent="."]
 visible = true
-margin_left = 190.0
-margin_top = 29.0
-margin_right = 838.0
-margin_bottom = 557.0
+margin_left = 188.0
+margin_top = 79.0
+margin_right = 836.0
+margin_bottom = 532.0
+popup_exclusive = true
 window_title = "Welcome!"
+resizable = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="windd"]
+[node name="ScrollContainer" type="ScrollContainer" parent="windd"]
 margin_left = 8.0
 margin_top = 8.0
 margin_right = 640.0
-margin_bottom = 492.0
+margin_bottom = 417.0
 
-[node name="Label" type="Label" parent="windd/VBoxContainer"]
-margin_right = 632.0
+[node name="VBoxContainer" type="VBoxContainer" parent="windd/ScrollContainer"]
+margin_right = 600.0
+margin_bottom = 503.0
+custom_constants/separation = 13
+
+[node name="Label" type="Label" parent="windd/ScrollContainer/VBoxContainer"]
+margin_right = 600.0
 margin_bottom = 14.0
 text = "This is some form made with Godot GUI elements ...."
 
-[node name="CheckBox" type="CheckBox" parent="windd/VBoxContainer"]
-margin_top = 18.0
-margin_right = 632.0
-margin_bottom = 42.0
+[node name="CheckBox" type="CheckBox" parent="windd/ScrollContainer/VBoxContainer"]
+margin_top = 27.0
+margin_right = 600.0
+margin_bottom = 51.0
 text = "Beautiful checkboxes!"
 
-[node name="Label2" type="Label" parent="windd/VBoxContainer"]
-margin_top = 46.0
-margin_right = 632.0
-margin_bottom = 60.0
+[node name="Label2" type="Label" parent="windd/ScrollContainer/VBoxContainer"]
+margin_top = 64.0
+margin_right = 600.0
+margin_bottom = 78.0
 text = "Badass sliders!"
 
-[node name="HSlider" type="HSlider" parent="windd/VBoxContainer"]
-margin_top = 64.0
-margin_right = 632.0
-margin_bottom = 80.0
+[node name="HSlider" type="HSlider" parent="windd/ScrollContainer/VBoxContainer"]
+margin_top = 91.0
+margin_right = 600.0
+margin_bottom = 107.0
+ticks_on_borders = false
 
-[node name="CheckButton" type="CheckButton" parent="windd/VBoxContainer"]
-margin_top = 84.0
-margin_right = 632.0
-margin_bottom = 124.0
+[node name="CheckButton" type="CheckButton" parent="windd/ScrollContainer/VBoxContainer"]
+margin_top = 120.0
+margin_right = 600.0
+margin_bottom = 160.0
 text = "iOS like on/off buttons"
 
-[node name="TextEdit" type="TextEdit" parent="windd/VBoxContainer"]
-margin_top = 128.0
-margin_right = 632.0
-margin_bottom = 228.0
+[node name="TextEdit" type="TextEdit" parent="windd/ScrollContainer/VBoxContainer"]
+margin_top = 173.0
+margin_right = 600.0
+margin_bottom = 273.0
 rect_min_size = Vector2( 600, 100 )
 text = "Open text Areas ...
 This is so great ! :)
 "
 
-[node name="ColorPickerButton" type="ColorPickerButton" parent="windd/VBoxContainer"]
-margin_top = 232.0
-margin_right = 632.0
-margin_bottom = 332.0
+[node name="Label3" type="Label" parent="windd/ScrollContainer/VBoxContainer"]
+margin_top = 286.0
+margin_right = 600.0
+margin_bottom = 300.0
+text = "Color picker"
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="windd/ScrollContainer/VBoxContainer"]
+margin_top = 313.0
+margin_right = 600.0
+margin_bottom = 333.0
+
+[node name="MenuButton" type="MenuButton" parent="windd/ScrollContainer/VBoxContainer"]
+margin_top = 346.0
+margin_right = 600.0
+margin_bottom = 366.0
+text = "Menu button"
+flat = false
+items = [ "Apples", null, 0, false, false, -1, 0, null, "", false, "Oranges", null, 0, false, false, -1, 0, null, "", false, "Coconuts", null, 0, false, false, -1, 0, null, "", false ]
+
+[node name="ItemList" type="ItemList" parent="windd/ScrollContainer/VBoxContainer"]
+margin_top = 379.0
+margin_right = 600.0
+margin_bottom = 439.0
+rect_min_size = Vector2( 0, 60 )
+items = [ "Ford", null, false, "Chevrolet", null, false, "Subaru", null, false, "Porsche", null, false, "Volkswagen", null, false ]
+
+[node name="Label4" type="Label" parent="windd/ScrollContainer/VBoxContainer"]
+margin_top = 452.0
+margin_right = 600.0
+margin_bottom = 466.0
+text = "One line edition :"
+
+[node name="LineEdit" type="LineEdit" parent="windd/ScrollContainer/VBoxContainer"]
+margin_top = 479.0
+margin_right = 600.0
+margin_bottom = 503.0
 [connection signal="button_up" from="Button" to="Button" method="_on_Button_button_up"]
