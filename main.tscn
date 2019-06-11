@@ -1,72 +1,51 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://main.gd" type="Script" id=1]
-[ext_resource path="res://GUI.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Ball.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Ground.tscn" type="PackedScene" id=4]
-[ext_resource path="res://assets/wall.jpg" type="Texture" id=5]
+[ext_resource path="res://Ball.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/ball-icon.png" type="Texture" id=3]
+[ext_resource path="res://Button.gd" type="Script" id=4]
+[ext_resource path="res://GUI.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Ground.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/wall.jpg" type="Texture" id=7]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 1 )
+Ball = ExtResource( 2 )
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="ButtonNewBall" type="Button" parent="."]
+margin_left = 912.018
+margin_top = 16.627
+margin_right = 1004.02
+margin_bottom = 52.627
+text = "Ball"
+icon = ExtResource( 3 )
+script = ExtResource( 4 )
+
+[node name="GUI" type="Node2D" parent="."]
+editor/display_folded = true
 z_index = 16
+__meta__ = {
+"_edit_lock_": true
+}
 
-[node name="Control" parent="Node2D" instance=ExtResource( 2 )]
+[node name="Control" parent="GUI" instance=ExtResource( 5 )]
 
-[node name="Ball" parent="." instance=ExtResource( 3 )]
-position = Vector2( 103.13, -174.117 )
-
-[node name="Ball12" parent="." instance=ExtResource( 3 )]
-position = Vector2( 290.191, -444.687 )
-
-[node name="Ball11" parent="." instance=ExtResource( 3 )]
-position = Vector2( 191.65, -291.03 )
-
-[node name="Ball7" parent="." instance=ExtResource( 3 )]
-position = Vector2( 281.84, -167.436 )
-
-[node name="Ball3" parent="." instance=ExtResource( 3 )]
-position = Vector2( 622.968, -157.547 )
-
-[node name="Ball13" parent="." instance=ExtResource( 3 )]
-position = Vector2( 542.799, -304.523 )
-
-[node name="Ball8" parent="." instance=ExtResource( 3 )]
-position = Vector2( 759.923, -209.323 )
-
-[node name="Ball14" parent="." instance=ExtResource( 3 )]
-position = Vector2( 808.358, -339.597 )
-
-[node name="Ball5" parent="." instance=ExtResource( 3 )]
-position = Vector2( 430.431, -150.279 )
-
-[node name="Ball4" parent="." instance=ExtResource( 3 )]
-position = Vector2( 873.529, -114.804 )
-
-[node name="Ball9" parent="." instance=ExtResource( 3 )]
-position = Vector2( 920.294, -221.696 )
-
-[node name="Ball15" parent="." instance=ExtResource( 3 )]
-position = Vector2( 965.389, -335.268 )
-
-[node name="Ball2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 287.14, -29.6119 )
-
-[node name="Ball6" parent="." instance=ExtResource( 3 )]
-position = Vector2( 533.72, -88.9944 )
-
-[node name="Ball10" parent="." instance=ExtResource( 3 )]
-position = Vector2( 371.713, -264.364 )
-
-[node name="Ground" parent="." instance=ExtResource( 4 )]
+[node name="Ground" parent="." instance=ExtResource( 6 )]
 light_mask = 2
 z_index = -1
 
 [node name="Wall" type="Node2D" parent="."]
+editor/display_folded = true
 z_index = -8
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Sprite" type="Sprite" parent="Wall"]
 position = Vector2( 510.719, 195.235 )
 scale = Vector2( 1.27667, 1.03306 )
-texture = ExtResource( 5 )
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_lock_": true
+}
+[connection signal="pressed" from="ButtonNewBall" to="." method="_on_ButtonNewBall_pressed"]
